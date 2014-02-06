@@ -1,0 +1,38 @@
+{
+	/*
+    "build_systems":
+    [
+        {
+            "name": "projBuild",
+            "cmd": ["${project_path}/release/${project_base_name}.exe"]
+        }
+    ],
+	*/
+	"folders":
+	[
+		{
+			"path": "/D/working/photonVolumeModel_map"
+		},
+		{
+			"path": "/D/working/visualIR/cluster_25d"
+		},
+		{
+			"path": "/D/working/visionComputing/siftImplement"
+		},
+		{
+			"path": "./"
+		}
+	],
+	"settings":
+	{
+		"sublimeclang_options":
+		[
+			"-I",
+			"D:/working/visionComputing/siftImplement",
+			"-I",
+			"D:/working/photonVolumeModel_map",
+			"-I",
+			"D:/working/visualIR/cluster_25d"
+		]
+	}
+}
