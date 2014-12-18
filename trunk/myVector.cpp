@@ -5,8 +5,8 @@ unsigned INTERATE_NUM = 200; //100;
 DATA INTERATE_LIM     = 1e-6;
 DATA DAMP             = 0.85F;
 //unsigned NET_PATH   = 20;
-unsigned NET_STEP_MIN = 1; // 10
-unsigned NET_STEP_MAX = 3; //30;
+unsigned NET_STEP_MIN = 4; //1; // 10
+unsigned NET_STEP_MAX = 30; //3; //30;
 DATA NET_STEP_LEN     = 4.F; // 3.F; //0.2F;
 bool B_NET_RND        = false; //false;
 bool B_STEP_RND       = false; //true;
@@ -939,7 +939,14 @@ void MyVector::SavePagerank() const
     lyrOp.rng.Gen(vMin, vMax, lyrO);
     cout << "rng: " << vMin << "-" << vMax << endl;
     lyrOp.sub.Gen(lyrO, vMin);
-    lyrOp.mul.Gen(lyrO, 255.F / (vMax - vMin));
+    lyrOp.mul.Gen(lyrO, 255.F / (vMax - vMin) * 10.F);
+	 for (unsigned y = 0; y < m_vIdxDim.m_y; y++) {
+       for (unsigned x = 0; x < m_vIdxDim.m_x; x++) {
+			if (lyrO.CellVal(x, y, 0) > 255.F) {
+				lyrO.CellRef(x, y, 0) = 255.F;
+			} else {}
+		}
+	  }
     lyrOp.saveImg.Gen(lyrO, m_fName + "_org_", ".bmp");
     lyrOp.rng.Gen(vMin, vMax, lyrO);
     cout << "rng: " << vMin << "-" << vMax << endl;
