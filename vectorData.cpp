@@ -230,7 +230,9 @@ void VectorFile::LoadRecord()
 								fSlice.read((char *)aV, sizeof(float) * m_vDim.m_a);
                        			l3dOrg.CellRef(x, y, z - 1, 0) = aV[0];
                        			l3dOrg.CellRef(x, y, z - 1, 1) = aV[1];
-                       			l3dOrg.CellRef(x, y, z - 1, 2) = aV[2];
+								if (m_vDim.m_a == 3) {
+                       				l3dOrg.CellRef(x, y, z - 1, 2) = aV[2];
+								} else {}
                        		} else {
                        			MyAssert(0);
                        		}

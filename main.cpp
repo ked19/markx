@@ -29,7 +29,8 @@ int main(int argc, char **argv)
 		
 	//MyVector mv("expt.vec");
 	//MyVector mv("cyl.vec"); 
-	MyVector mv("helix.vec");
+	//MyVector mv("helix.vec");
+	MyVector mv("comercial.vec");
 	mv.BuildNet();
 	mv.Pagerank();
 	//mv.HITS();
